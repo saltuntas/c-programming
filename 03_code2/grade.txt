@@ -1,19 +1,27 @@
-Grading at Wed Jan 29 21:20:05 UTC 2020
+Grading at Wed Jan 29 21:30:24 UTC 2020
 Checking code2.c for legal syntax
-temp.c: In function ‘main’:
-temp.c:44:10: error: missing terminating ' character [-Werror]
-   printf('That triangle had %d total stars\n", numStars);
-          ^
-temp.c:44:3: error: missing terminating ' character
-   printf('That triangle had %d total stars\n", numStars);
-   ^
-temp.c:49:3: error: expected expression before ‘return’
-   return 0;
-   ^
-temp.c:50:1: error: expected ‘;’ before ‘}’ token
- }
- ^
-cc1: all warnings being treated as errors
-The code did not have legal syntax!
+Checking for int printTriangle (int size)
+Found on line 4, column 1 
+Checking for int main(void)
+Found on line 32, column 1 
+Trying to run the code..
+Line_7_did_not_match
+Your file did not match the expected ouput
+Here is what you printed
+Here is a triangle with height 4
+*
+**
+***
+****
+That triangle had 10 total stars
+Here is a triangke with height 7
+*
+**
+***
+****
+*****
+******
+*******
+That triangle had 28 total stars
 
 Overall Grade: F
