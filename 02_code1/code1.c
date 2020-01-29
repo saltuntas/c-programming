@@ -1,7 +1,6 @@
-üint max (int num1, int num2) {
+int max (int num1, int num2) {
   if(num1 > num2){
-    return n
-      um1;
+    return num1;
   }
   else {
     return num2;
@@ -17,5 +16,6 @@ int main(void) {
   
   return 0;
 }
+
 
 
