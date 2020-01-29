@@ -1,0 +1,23 @@
+Grading at Wed Jan 29 21:16:41 UTC 2020
+Checking code2.c for legal syntax
+temp.c: In function ‘printTriangle’:
+temp.c:18:14: error: operation on ‘starCount’ may be undefined [-Werror=sequence-point]
+    starCount = starCount++;
+              ^
+temp.c: In function ‘main’:
+temp.c:44:10: error: missing terminating ' character [-Werror]
+   printf('That triangle had %d total stars\b", numStars);
+          ^
+temp.c:44:3: error: missing terminating ' character
+   printf('That triangle had %d total stars\b", numStars);
+   ^
+temp.c:49:3: error: expected expression before ‘return’
+   return 0;
+   ^
+temp.c:50:1: error: expected ‘;’ before ‘}’ token
+ }
+ ^
+cc1: all warnings being treated as errors
+The code did not have legal syntax!
+
+Overall Grade: F
