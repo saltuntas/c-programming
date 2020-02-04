@@ -36,37 +36,28 @@ int isAtBorder(int coord, int offset, int size) {
   // return 1, else return 0
   return 0;
 }
-
+int maksimal(int f, int s) {
+  if (f>s)
+    {
+      return f;
+    }
+  else {
+    return s;
+  }
+}
 
 void squares(int size1, int x_offset, int y_offset, int size2) {
 //compute the max of size1 and (x_offset + size2).  Call this w
-  int w;
-  if (size1>(x_offset+size2)
-      ) {
-      int w=size1;
-    }
-    else {
-      int w=x_offset+size2;
-    }
-    
 
-  
+  int top1=(x_offset+size2);
+  int w=maksimal(size1,top1);		
   //compute the max of size1 and (y_offset + size2).  Call this h
-  int h;
-  
-  if(size1>(y_offset+size2))
-      {
-	int h=size1;
-      }
-      else
-	{
-	  int h=y_offset+size2;
-	}
-	       
-  
+  int top2 = (y_offset+size2);
+  int h = maksimal(size1,top2);  
   //count from 0 to h. Call the number you count with y
   for (int y=0;y<h; y++)
 		 {
+
 		   
     //count from 0 to w. Call the number you count with x
 		   for (int x=0;x<w; x++)
