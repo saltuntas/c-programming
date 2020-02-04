@@ -7,7 +7,7 @@
  * offset (INCLUSIVE) and offset + size (EXCLUSIVE)
  */
 int isInRange(int coord, int offset, int size) {
-  if (coord>=offset && coord<size)
+  if (coord>=offset && coord<(offset+size))
     { return 1;
 	}
   // if coord is in range, return 1
@@ -64,7 +64,7 @@ void squares(int size1, int x_offset, int y_offset, int size2) {
       //check if  EITHER
       //    ((x is between x_offset  and x_offset +size2) AND 
       //     y is equal to either y_offset OR y_offset + size2 - 1 )
-		       if ((isInRange(x,x_offset,(x_offset+size2))==1 && isAtBorder(y,y_offset,(size2-1))==1) || (isInRange(y,y_offset,(y_offset+size2))==1 && isAtBorder(x,x_offset,(+size2-1))==1))
+		       if ((isInRange(x,x_offset,size2)==1 && isAtBorder(y,y_offset,(size2-1))==1) || (isInRange(y,y_offset,size2)==1 && isAtBorder(x,x_offset,(size2-1))==1))
 
 			 {
       //  OR
@@ -77,10 +77,11 @@ void squares(int size1, int x_offset, int y_offset, int size2) {
       //if not,
       // check if EITHER
 		       
-		       else if((((x<size1) && (y==0)) || (y==(size1-1))) || ((y<size1) && (((x==0)) || x== (size1-1))))
+		       else if((x<size1 && isAtBorder(y,0,(size1-1))) || (y<size1 && isAtBorder(x,0,(size1-1))))
 			 
 
 			 {
+			   
       //    x is less than size1 AND (y is either 0 or size1-1)
       // OR
       //    y is less than size1 AND (x is either 0 or size1-1)
@@ -102,4 +103,7 @@ void squares(int size1, int x_offset, int y_offset, int size2) {
 }
 
 
+
+
     
+
