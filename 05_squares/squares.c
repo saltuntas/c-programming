@@ -17,7 +17,7 @@ int isInRange(int coord, int offset, int size) {
     {
       return 0;
   }
-  return 0;
+
 }
 
 /*
@@ -34,7 +34,6 @@ int isAtBorder(int coord, int offset, int size) {
     return 0;
   }
   // return 1, else return 0
-  return 0;
 }
 int maksimal(int f, int s) {
   if (f>s)
@@ -65,7 +64,7 @@ void squares(int size1, int x_offset, int y_offset, int size2) {
       //check if  EITHER
       //    ((x is between x_offset  and x_offset +size2) AND 
       //     y is equal to either y_offset OR y_offset + size2 - 1 )
-		       if ((isInRange(x,x_offset,(x_offset+size2))==1 && isAtBorder(y,y_offset,(y_offset+size2-1))==1) || (isInRange(y,y_offset,(y_offset+size2))==1 && isAtBorder(x,x_offset,(x_offset+size2-1))==1))
+		       if ((isInRange(x,x_offset,(x_offset+size2))==1 && isAtBorder(y,y_offset,(size2-1))==1) || (isInRange(y,y_offset,(y_offset+size2))==1 && isAtBorder(x,x_offset,(+size2-1))==1))
 
 			 {
       //  OR
@@ -101,5 +100,6 @@ void squares(int size1, int x_offset, int y_offset, int size2) {
 
   
 }
+
 
     
