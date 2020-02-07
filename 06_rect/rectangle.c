@@ -16,16 +16,57 @@ int max (int a, int b) {
 }
 
 //Declare your rectangle structure here!
-
+typedef struct rect {
+  int x;
+  int y;
+  int width;
+  int height;
+}
+  rectangle; 
 
 rectangle canonicalize(rectangle r) {
   //WRITE THIS FUNCTION
+  if (r.width < 0) {
+    r.x += r.width;
+    r.width = abs (r.width);
+   
+  }
+  if (r.height <0) {
+    r.y += r.height;
+    r.height = abs (r.height);
+  }
   return r;
 }
 rectangle intersection(rectangle r1, rectangle r2) {
   //WRITE THIS FUNCTION
-  return r1;
+
+  
+  r1 =canonicalize(r1);
+  r2 =canonicalize(r2);
+
+  // WHEN THERE IS NO INTERSECTION;
+
+  rectangle intersection;
+    
+  if (((r1.x + r1.width < r2.x) || (r2.x + r2.width < r1.x))
+	 || ((r1.y + r1.height < r2.y) || (r2.y + r2.height < r1.y))) {
+    intersection.x = 0;
+    intersection.y = 0;
+    intersection.width = 0;
+    intersection.height = 0;
+    return intersection;
+  }
+  
+
+  intersection.x = max(r1.x, r2.x);
+  intersection.y =max(r1.y, r2.y);
+  intersection.width =min(r1.x + r1.width, r2.x + r2.width) - intersection.x;
+  intersection.height =min(r1.y + r1.height, r2.y + r2.height) - intersection.y;
+  
+  return intersection;
 }
+
+
 
 //You should not need to modify any code below this line
 void printRectangle(rectangle r) {
@@ -34,8 +75,7 @@ void printRectangle(rectangle r) {
     printf("<empty>\n");
   }
   else {
-    printf("(%d,%d) to (%d,%d)\n", r.x, r.y, 
-	                           r.x + r.width, r.y + r.height);
+    printf("(%d,%d) to (%d,%d)\n", r.x, r.y, r.x + r.width, r.y + r.height);
   }
 }
 
